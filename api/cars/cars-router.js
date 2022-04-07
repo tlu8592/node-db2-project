@@ -2,8 +2,13 @@
 const router = require('express').Router();
 const Car = require('./cars-model');
 
-router.get('/', (req, res) => {
-    res.send("Hello from Cars Router");
+router.get('/', async (req, res) => {
+    const cars = await Car.getAll();
+    if (!cars) {
+        res.send([]);
+    } else {
+        res.json(cars);
+    }
 })
 
 module.exports = router;
