@@ -19,4 +19,7 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   // DO YOUR MAGIC
+  // must undo everything up function did in reverse order
+  // last thing did by up function is first thing undone by down function
+  return knex.schema.dropTableIfExists('cars')
 };
