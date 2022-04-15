@@ -16,11 +16,7 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/:id', checkCarId, async (req, res, next) => {
-    try {
-        res.json(req.car)
-    } catch (err) {
-        next(err)
-    }
+    res.json(req.car)
 })
 
 router.post('/', async (req, res, next) => {
